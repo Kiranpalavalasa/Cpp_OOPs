@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include "sensor.h"
 
 // #include "base_derived.h"
 // #include "mobile_robot.h"
@@ -15,6 +16,9 @@
 
 //==============================================================================
 int main(){
+  auto sensor = RWA2::Sensor("OSDome");
+
+  sensor.read_data(10);
   // Base base;
   // Derived derived(10);
 }
