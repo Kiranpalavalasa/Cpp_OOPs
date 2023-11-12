@@ -37,8 +37,8 @@ class AerialRobot: public MobileRobot
          * @param is_flying flag to decide if the robot is flying.
          */
         AerialRobot(double x, double y, double orientation, bool has_wings,
-        double altitude = 0.0, std::string battery_model, int current_charge,
-        std::string sensor_model, bool is_flying = false, double speed = 0.0): 
+        std::string battery_model, int current_charge,
+        std::string sensor_model, double altitude = 0.0, bool is_flying = false, double speed = 0.0): 
         MobileRobot(x, y, orientation, battery_model, current_charge, sensor_model, speed), 
         has_wings_{has_wings}, 
         altitude_{altitude},
