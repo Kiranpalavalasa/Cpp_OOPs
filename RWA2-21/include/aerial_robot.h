@@ -10,7 +10,7 @@ class AerialRobot: public MobileRobot
         bool is_flying_;
 
         /**
-         * @brief This method is used to move the robot to the mentioned altutude.
+         * @brief This method is used to move the robot to the mentioned altitude.
          * 
          * @param altitude The param altitude is used to decide how much the robot has to move.
          */
