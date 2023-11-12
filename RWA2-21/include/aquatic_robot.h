@@ -37,8 +37,8 @@ class AquaticRobot: public MobileRobot
          * @param is_diving flag to decide if the robot is diving.
          */
         AquaticRobot(double x, double y, double orientation, bool has_fins,
-        double depth = 0.0, std::string battery_model, int current_charge,
-        std::string sensor_model, bool is_diving = false, double speed = 0.0): 
+        std::string battery_model, int current_charge, std::string sensor_model, 
+        double depth = 0.0, bool is_diving = false, double speed = 0.0): 
         MobileRobot(x, y, orientation, battery_model, current_charge, sensor_model, speed), 
         has_fins_{has_fins}, 
         depth_{depth},

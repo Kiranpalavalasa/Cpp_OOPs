@@ -1,122 +1,65 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "sensor.h"
 
-// #include "base_derived.h"
-// #include "mobile_robot.h"
-// #include "constructors.h"
+ #include "mobile_robot.h"
+ #include "aerial_robot.h"
+ #include "aquatic_robot.h"
+ #include "legged_robot.h"
+ #include "wheeled_robot.h"
 
-//==============================================================================
-// int main() {
-//   DerivedPublic derived_public;
-//   DerivedProtected derived_protected;
-//   DerivedPrivate derived_private;
-// }
+// Move robot is called to move the robot.
+void move_robot(RWA2::MobileRobot& robot){
+  // Calling the move method specfic to the robot.
+  robot.move(0.2, 20);
+} //  end of move method.
 
-//==============================================================================
-int main(){
-  auto sensor = RWA2::Sensor("OSDome");
+int main() {
 
-  sensor.read_data(10);
-  // Base base;
-  // Derived derived(10);
-}
+  std::vector<std::reference_wrapper<RWA2::MobileRobot>> mobile_robots;
 
-//==============================================================================
-// Without polymorphism
-//==============================================================================
-// void get_status(const std::vector<std::unique_ptr<RWA2::AerialRobot>>& robots) {
-//   for (const auto& robot : robots)
-//     robot->print_status();
-// }
+  RWA2::AerialRobot aerial_robot1(0.0, 0.0, 0.0, true,
+        "LiFePO4", 20, "multiScan100");
+  RWA2::MobileRobot& aerial_robot_ref1{aerial_robot1};
 
-// void get_status(const std::vector<std::unique_ptr<RWA2::LeggedRobot>>& robots) {
-//   for (const auto& robot : robots)
-//     robot->print_status();
-// }
+  RWA2::AerialRobot aerial_robot2(0.0, 0.0, 0.0, false,
+        "Li-ion", 20, "multiScan100");
+  RWA2::MobileRobot& aerial_robot_ref2{aerial_robot2};
 
-// void get_status(const std::vector<std::unique_ptr<RWA2::WheeledRobot>>& robots) {
-//   for (const auto& robot : robots)
-//     robot->print_status();
-// }
+  RWA2::AquaticRobot aquatic_robot1(0.0, 0.0, 0.0, true,
+        "LiFePO4", 20, "multiScan100");
+  RWA2::MobileRobot& aquatic_robot_ref1{aquatic_robot1};
 
-// int main() {
-//   std::vector<std::unique_ptr<RWA2::AerialRobot>> aerial_robots;
-//   std::vector<std::unique_ptr<RWA2::LeggedRobot>> legged_robots;
-//   std::vector<std::unique_ptr<RWA2::WheeledRobot>> wheeled_robots;
+  RWA2::AquaticRobot aquatic_robot2(0.0, 0.0, 0.0, false,
+        "Li-ion", 20, "multiScan100");
+  RWA2::MobileRobot& aquatic_robot_ref2{aquatic_robot2};
 
-//   auto aerial_ptr =
-//       std::make_unique<RWA2::AerialRobot>(2.5, 5.5, 45.0, false);
+  RWA2::LeggedRobot legged_robot1(0.0, 0.0, 0.0, 0.1,
+        "LiFePO4", 20, "OSDome",  10);
+  RWA2::MobileRobot& legged_robot_ref1{legged_robot1};
 
-//   auto legged_ptr =
-//       std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, 0.5);
+  RWA2::LeggedRobot legged_robot2(0.0, 0.0, 0.0, 0.1,
+        "Li-ion", 20, "OS1",  5);
+  RWA2::MobileRobot& legged_robot_ref2{legged_robot2};
 
-//   auto wheeled_ptr =
-//       std::make_unique<RWA2::WheeledRobot>(4.5, 7.5, 0.0, 6, 2);
+  RWA2::WheeledRobot wheeled_robot1(0.0, 0.0, 0.0, 2.5,
+        "LiFePO4", 20, "OS2",  2.0);
+  RWA2::MobileRobot& wheeled_robot_ref1{wheeled_robot1};
 
-//   aerial_robots.push_back(std::move(aerial_ptr));
-//   legged_robots.push_back(std::move(legged_ptr));
-//   wheeled_robots.push_back(std::move(wheeled_ptr));
+  RWA2::WheeledRobot wheeled_robot2(0.0, 0.0, 0.0, 2.5,
+        "Li-ion", 20, "OS1",  4.0, 4);
+  RWA2::MobileRobot& wheeled_robot_ref2{wheeled_robot2};
 
-//   get_status(aerial_robots);
-//   get_status(legged_robots);
-//   get_status(wheeled_robots);
-// }
-
-//==============================================================================
-// With polymorphism (pointer version)
-//==============================================================================
-// void get_status(const std::vector<std::unique_ptr<RWA2::MobileRobot>>& robots) {
-//   for (const auto& robot : robots)
-//     robot->print_status();
-// }
-
-// int main() {
-//   std::vector<std::unique_ptr<RWA2::MobileRobot>> mobile_robots;
-
-//   std::unique_ptr<RWA2::MobileRobot> aerial_ptr =
-//       std::make_unique<RWA2::AerialRobot>(2.5, 5.5, 45.0, false);
-
-//   std::unique_ptr<RWA2::MobileRobot> legged_ptr =
-//       std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, 0.5);
-
-//   std::unique_ptr<RWA2::MobileRobot> wheeled_ptr =
-//       std::make_unique<RWA2::WheeledRobot>(4.5, 7.5, 0.0, 6, 2);
-
-//   mobile_robots.push_back(std::move(aerial_ptr));
-//   mobile_robots.push_back(std::move(legged_ptr));
-//   mobile_robots.push_back(std::move(wheeled_ptr));
-
-//   get_status(mobile_robots);
-// }
-
-//==============================================================================
-// With polymorphism (reference version)
-//==============================================================================
-// void get_status(RWA2::MobileRobot& robot) {
-//     robot.print_status();
-// }
-
-// int main() {
-//   RWA2::MobileRobot mobile_robot(1.5, 4.5, 45.0);
-
-//   std::vector<std::reference_wrapper<RWA2::MobileRobot>> mobile_robots;
-
-//   RWA2::AerialRobot aerial_robot(2.5, 5.5, 45.0, false);
-//   RWA2::MobileRobot& aerial_robot_ref{aerial_robot};
-
-//   RWA2::LeggedRobot legged_robot(3.5, 6.5, 45.0, 0.5);
-//   RWA2::MobileRobot& legged_robot_ref{legged_robot};
-
-//   RWA2::WheeledRobot wheeled_robot(4.5, 7.5, 0.0, 6, 2);
-//   RWA2::MobileRobot& wheeled_robot_ref{wheeled_robot};
-
-//   mobile_robots.push_back(aerial_robot_ref);
-//   mobile_robots.push_back(legged_robot_ref);
-//   mobile_robots.push_back(wheeled_robot_ref);
-
-//   for (const auto& robot : mobile_robots){
-//     get_status(robot);
-//   }
-// }
+  mobile_robots.push_back(aerial_robot_ref1);
+  mobile_robots.push_back(aquatic_robot_ref1);
+  mobile_robots.push_back(legged_robot_ref1);
+  mobile_robots.push_back(wheeled_robot_ref1);
+  mobile_robots.push_back(aerial_robot_ref2);
+  mobile_robots.push_back(aquatic_robot_ref2);
+  mobile_robots.push_back(legged_robot_ref2);
+  mobile_robots.push_back(wheeled_robot_ref2);
+  for(const auto& robot : mobile_robots){
+    // Calling the move_robot method
+    move_robot(robot);
+  }
+} // end of main.

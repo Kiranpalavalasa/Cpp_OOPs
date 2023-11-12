@@ -11,10 +11,10 @@ void RWA2::WheeledRobot::accelerate(double amount){
         // incrementing the speed by amount.
         speed_ += amount;
         // Making the thread sleep for 0.5 sec.
-        std::this_thread::sleep_for(std::chrono::milliseconds(500))
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
     // Printing the speed status of the robot.
-    std::cout<< model_ << " has reached the desired speed of "<< desired_speed_ << "m/s.\n";
+    std::cout<< model_ << "Has reached the desired speed of "<< desired_speed_ << "m/s.\n";
 }
 
 // Method to decelerate
@@ -24,10 +24,10 @@ void RWA2::WheeledRobot::decelerate(double amount){
         // decrementing the speed by amount.
         speed_ -= amount;
         // Making the thread sleep for 0.5 sec.
-        std::this_thread::sleep_for(std::chrono::milliseconds(500))
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
     // Printing the speed status of the robot.
-    std::cout<< model_ << " has reached stopped.\n";
+    std::cout<< model_ << "Has reached stopped.\n";
 }
 
 void RWA2::WheeledRobot::brake(){
@@ -67,7 +67,7 @@ void RWA2::WheeledRobot::move(double distance, double angle){
         // Calling brake to stop the robot.
         brake();
         // Printing a message that the robot has reached the mentioned distance.
-        std::cout<< model_ <<" drove "<<distance<<" m\n";
+        std::cout<< model_ <<"Drove "<<distance<<" m\n";
         // Printing the status.
         print_status();
     }

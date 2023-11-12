@@ -6,6 +6,8 @@
 
 // Method to take off
 void RWA2::AerialRobot::take_off(double altitude){
+    //Setting the flag is flying to true.
+    is_flying_ = true;
     // declaring the duration variable to use it to sleep.
     int duration{0};
     // Checking if the robot has wings.
@@ -39,6 +41,8 @@ void RWA2::AerialRobot::land(){
     std::this_thread::sleep_for(std::chrono::milliseconds(duration));
     // Setting the altitude to zero as Robot has landed.
     altitude_ = 0;
+    // Setting the is_flying flag to false.
+    is_flying_ = false;
 }
 
 // Method to print the robot status
@@ -84,7 +88,7 @@ void RWA2::AerialRobot::move(double distance, double angle){
             std::cout<< "The AerialRobot "<<model_ <<" is already on land.\n";
         }
         // Printing a message that the robot has reached the mentioned altitude.
-        std::cout<< model_ <<" reached an altitude of "<<distance<<" meters and then landed.\n";
+        std::cout<< model_ <<"Reached an altitude of "<<distance<<" meters and then landed.\n";
         // Printing the status.
         print_status();
     }

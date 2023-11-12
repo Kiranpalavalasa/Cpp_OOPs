@@ -46,10 +46,10 @@ class WheeledRobot: public MobileRobot
         WheeledRobot(double x, double y, double orientation, double wheel_diameter,
         std::string battery_model, int current_charge,
         std::string sensor_model,  double desired_speed, int number_of_wheels = 2 , double speed = 0.0): 
-        MobileRobot(x, y, orientation, battery_model, current_charge, sensor_model, speed), 
-        wheel_diameter_{wheel_diameter}, 
         number_of_wheels_{number_of_wheels},
-        desired_speed_{desired_speed}{
+        wheel_diameter_{wheel_diameter}, 
+        desired_speed_{desired_speed},
+        MobileRobot(x, y, orientation, battery_model, current_charge, sensor_model, speed){
 
         }
 

@@ -6,6 +6,8 @@
 
 // Method to dive.
 void RWA2::AquaticRobot::dive(double depth){
+    //Setting the flag to true.
+    is_diving_ = true;
     // declaring the duration variable to use it to sleep.
     int duration{0};
     // Checking if the robot has fins.
@@ -40,6 +42,8 @@ void RWA2::AquaticRobot::surface(){
     std::this_thread::sleep_for(std::chrono::milliseconds(duration));
     // Setting the depth to zero as Robot has surfaced.
     depth_ = 0;
+    //Setting the flag to false.
+    is_diving_ = false;
 }
 
 // Method to print the robot status.
@@ -85,7 +89,7 @@ void RWA2::AquaticRobot::move(double distance, double angle){
             std::cout<< "The AquaticRobot "<<model_ <<" is already on surface.\n";
         }
         // Printing a message that the robot has reached the mentioned depth.
-        std::cout<< model_ <<" reached an depth of "<<distance<<" meters and then surfaceed.\n";
+        std::cout<< model_ <<"Reached an depth of "<<distance<<" meters and then surfaceed.\n";
         // Printing the status.
         print_status();
     }
