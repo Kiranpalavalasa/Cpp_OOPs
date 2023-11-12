@@ -1,0 +1,7 @@
+<map id="RWA2::MobileRobot::print_status" name="RWA2::MobileRobot::print_status">
+<area shape="rect" id="node1" title="This method is used to print the status i.e. the orientation and position of the robot." alt="" coords="217,104,376,145"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_aerial_robot.html#ae738b1a11c43e8d19f4b447e38e26e22" title="The overridden method to print the status of the aerial robot." alt="" coords="11,5,164,47"/>
+<area shape="rect" id="node3" href="$class_r_w_a2_1_1_aquatic_robot.html#a3d5b7fbcb1867ee3d5925ad673efffd3" title="The overridden method to print the status of the aquatic robot." alt="" coords="9,71,165,112"/>
+<area shape="rect" id="node4" href="$class_r_w_a2_1_1_legged_robot.html#a3f30239eb0fdeade58f8cf4ce510a6ee" title="The overridden method to print the status of the Legged robot." alt="" coords="6,136,169,177"/>
+<area shape="rect" id="node5" href="$class_r_w_a2_1_1_wheeled_robot.html#ad7f27c869d62676c207f4045f8f31672" title="The overridden method to print the status of the Wheeled robot." alt="" coords="5,201,169,243"/>
+</map>

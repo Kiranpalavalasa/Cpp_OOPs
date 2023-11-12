@@ -1,0 +1,4 @@
+<map id="RWA2::LeggedRobot::print_status" name="RWA2::LeggedRobot::print_status">
+<area shape="rect" id="node1" title="The overridden method to print the status of the Legged robot." alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html#a355a94c1602869459370267bc0c0915c" title="This method is used to print the status i.e. the orientation and position of the robot." alt="" coords="216,5,375,47"/>
+</map>

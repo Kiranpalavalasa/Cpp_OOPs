@@ -1,0 +1,4 @@
+<map id="RWA2::Battery::discharge" name="RWA2::Battery::discharge">
+<area shape="rect" id="node1" title="Each time this method is called, the battery’s current_charge_ decrements by amount." alt="" coords="5,13,192,39"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_battery.html#a65c31a8b2f786fa04c52383db001492a" title="The method should calculate the remaining charge time based on the current_charge_ attribute." alt="" coords="240,5,395,47"/>
+</map>
