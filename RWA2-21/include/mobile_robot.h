@@ -9,6 +9,22 @@
 
 namespace RWA2 {
 class MobileRobot {
+ 
+ protected:
+  std::pair<double, double> position_;
+  double orientation_;
+  double speed_{0.0};
+  Battery battery_;
+  std::unique_ptr<RWA2::Sensor> sensors_;
+  std::string model_;
+
+  /**
+   * @brief This method is used to rotate the robot by the specified angle.
+   * 
+   * @param angle The param angle by which the robot moves.
+   */
+  void rotate(double angle);
+
  public:
  /**
   * @brief Construct a new Mobile Robot object
@@ -18,7 +34,8 @@ class MobileRobot {
   * @param orientation orientation of the robot.
   * @param battery_model battery model attached to the robot.
   * @param current_charge current charge of the battery.
-  * @param sensor_model sensor model attached to the robot
+  * @param sensor_model sensor model attached to the robot.
+  * @param speed speed with which the robot moves.
   */
   MobileRobot(double x, double y, double orientation, std::string battery_model, int current_charge, std::string sensor_model, double speed = 0.0)
       : position_{x, y}, orientation_{orientation}, battery_(battery_model, current_charge), speed_{speed} {
@@ -39,19 +56,5 @@ class MobileRobot {
    */
   virtual void print_status();
 
- protected:
-  std::pair<double, double> position_;
-  double orientation_;
-  double speed_{0.0};
-  Battery battery_;
-  std::unique_ptr<RWA2::Sensor> sensors_;
-  std::string model_;
-
-  /**
-   * @brief This method is used to rotate the robot by the specified angle.
-   * 
-   * @param angle The param angle by which the robot moves.
-   */
-  void rotate(double angle);
 };  // class MobileRobot
 }  // namespace RWA2
