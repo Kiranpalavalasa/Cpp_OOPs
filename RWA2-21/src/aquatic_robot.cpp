@@ -11,11 +11,11 @@ void RWA2::AquaticRobot::dive(double depth){
     // Checking if the robot has fins.
     if(has_fins_){
         // Setting the depth based on the robot having fins.
-        duration = depth*1000/3;
+        duration = depth*1000/2;
     }
     else {
         // Setting the depth based on the robot having fins.
-        duration = depth *1000/1.5;
+        duration = depth *1000;
     }
     // Making the robot sleep for the calculated duration.
     std::this_thread::sleep_for(std::chrono::milliseconds(duration));
