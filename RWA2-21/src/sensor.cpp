@@ -17,5 +17,6 @@ void RWA2::Sensor::read_data(unsigned int duration){
     for(int i; i < 50; i++){
         //generating a random int with in the range of 0,30.
         RWA2::Sensor::data_[i] = (rand() % 30);
+        
     }
 }
